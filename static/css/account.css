@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: dubai;
+}
+
+.form-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: auto;
+}
+
+.form-header{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.form-header h3{
+    padding-left: 10%;
+    color: #0000ff;
+}
+
+.message{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.message p{
+    color: #fff;
+    padding: 15px 50px;
+    font-family: ink free;
+}
+
+input[type=text],
+input[type=password],
+input[type=email]{
+    display: block;
+    width: 80%;
+    height: 30px;
+    margin-bottom: 20px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid #ff0000;
+    padding-left: 10px;
+}
+
+input[type=text],
+input[type=password],
+input[type=email]:focus{
+    outline: none;
+}
+
+label{
+    margin-left: 10%;
+}
+
+input[type=submit]{
+    display: block;
+    margin-left: 10%;
+    padding: 6px 10px;
+    border: none;
+    cursor: pointer;
+    background: darkmagenta;
+    color: #fff;
+}
+
+.reg{
+    width: 30%;
+    height: 150px;
+    position: fixed;
+    background: #800080;
+    bottom: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: 1s;
+    cursor: pointer;
+}
+
+.reg:hover{
+    bottom: 0;
+}
+
+.descr{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #fff;
+}
+
+.descr p{
+    color: #fff;
+    padding-left: 20px;
+}
+
+.btn-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.btn-container p a{
+    text-decoration: none;
+    color: #fff;
+    padding: 6px 10px;
+    background: #000;
+    margin-left: 20px;
+}
