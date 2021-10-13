@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OINVE | Manage_Staff</title>
+    <link rel="stylesheet" href="{%static 'css/starter.css' %}">
+    <link rel="stylesheet" href="{%static 'css/main.css' %}">
+</head>
+<body>
+    {% include 'template_loader.html' %}
+    {% include 'template_header.html' %}
+    <div class="links-container">
+        <ul class="links">
+            <li><a href="/admin_home">Home</a></li>
+            <li><a href="/add_staff">Add Staff</a></li>
+            <li class="active"><a href="/manage_staff">Manage Staff</a></li>
+            <li><a href="/add_supplier">Add Supplier</a></li>
+            <li><a href="/manage_supplier">Manage Supplier</a></li>
+            <li><a href="/add_product">Add Product</a></li>
+            <li><a href="/manage_product">Manage Product</a></li>
+            <li><a href="/order">Orders</a></li>
+            <li><a href="/delivery">Delivery</a></li>
+        </ul>
+    </div>
+    {% include 'template_icon.html' %}
+    <section>
+        <div class="ttle">
+            <h3>Manage Staff</h3>
+        </div>
+        <div class="content-container">
+            <div class="search-container">
+                <div class="form-search">
+                    <form action="search_staff" method="POST">
+                        {% csrf_token %}
+                        <input type="search" name="search" placeholder="First Name">
+                        <button type="submit" class="btn">search</button>
+                    </form>
+                </div>
+            </div>
+            {% if search %}
+            <br>
+            <p>Showing result for {{search}}</p>
+            <br>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>F_name</th>
+                        <th>L_name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Department</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for staff in staffs %}
+                    <tr>
+                        <td>{{staff.id}}</td>
+                        <td>{{staff.fname}}</td>
+                        <td>{{staff.lname}}</td>
+                        <td>{{staff.phone}}</td>
+                        <td>{{staff.email}}</td>
+                        <td>{{staff.department}}</td>
+                        <td><a href="/edit_staff/{{staff.id}}">Edit</a>&nbsp;&nbsp;&nbsp;<a href="#">Delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>F_name</th>
+                        <th>L_name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Department</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for staff in staffs %}
+                    <tr>
+                        <td>{{staff.id}}</td>
+                        <td>{{staff.fname}}</td>
+                        <td>{{staff.lname}}</td>
+                        <td>{{staff.phone}}</td>
+                        <td>{{staff.email}}</td>
+                        <td>{{staff.department}}</td>
+                        <td><a href="/edit_staff/{{staff.id}}">Edit</a>&nbsp;&nbsp;&nbsp;<a href="#">Delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% endif %}
+        </div>
+    </section>
+    {% include 'template_footer.html' %}
+
+    <script src="{%static 'js/starter.js' %}"></script>
+    <script src="{%static 'js/main.js' %}"></script>
+</body>
+</html>

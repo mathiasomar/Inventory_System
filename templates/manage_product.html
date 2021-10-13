@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OINVE | Manage_Product</title>
+    <link rel="stylesheet" href="{%static 'css/starter.css' %}">
+    <link rel="stylesheet" href="{%static 'css/main.css' %}">
+</head>
+<body>
+    {% include 'template_loader.html' %}
+    {% include 'template_header.html' %}
+    <div class="links-container">
+        <ul class="links">
+            <li><a href="/admin_home">Home</a></li>
+            <li><a href="/add_staff">Add Staff</a></li>
+            <li><a href="/manage_staff">Manage Staff</a></li>
+            <li><a href="/add_supplier">Add Supplier</a></li>
+            <li><a href="/manage_supplier">Manage Supplier</a></li>
+            <li><a href="/add_product">Add Product</a></li>
+            <li class="active"><a href="/manage_product">Manage Product</a></li>
+            <li><a href="/order">Orders</a></li>
+            <li><a href="/delivery">Delivery</a></li>
+        </ul>
+    </div>
+    {% include 'template_icon.html' %}
+    <section>
+        <div class="ttle">
+            <h3>Manage Product</h3>
+        </div>
+        <div class="content-container">
+            <div class="search-container">
+                <div class="form-search">
+                    <form action="search_product" method="POST">
+                        {% csrf_token %}
+                        <input type="search" name="search" placeholder="Product Name">
+                        <button type="submit" class="btn">search</button>
+                    </form>
+                </div>
+            </div>
+            {% if search %}
+            <br>
+            <p>Showing result for {{search}}</p>
+            <br>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Product Name</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Supplier</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <td>{{product.id}}</td>
+                        <td>{{product.pname}}</td>
+                        <td>{{product.pcategory}}</td>
+                        <td>{{product.pquantity}}</td>
+                        <td>@ {{product.pprice}}/=</td>
+                        <td>{{product.sid.fname}} {{product.sid.lname}}</td>
+                        <td><a href="#">Edit</a>&nbsp;&nbsp;&nbsp;<a href="#">Delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Product Name</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Supplier</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <td>{{product.id}}</td>
+                        <td>{{product.pname}}</td>
+                        <td>{{product.pcategory}}</td>
+                        <td>{{product.pquantity}}</td>
+                        <td>@ {{product.pprice}}/=</td>
+                        <td>{{product.sid.fname}} {{product.sid.lname}}</td>
+                        <td><a href="#">Edit</a>&nbsp;&nbsp;&nbsp;<a href="#">Delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% endif %}
+        </div>
+    </section>
+    {% include 'template_footer.html' %}
+
+    <script src="{%static 'js/starter.js' %}"></script>
+    <script src="{%static 'js/main.js' %}"></script>
+</body>
+</html>

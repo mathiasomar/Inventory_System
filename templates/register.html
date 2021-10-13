@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OINVE | Register</title>
+    <link rel="stylesheet" href="{%static 'css/account.css' %}">
+</head>
+<body>
+    {% for message in messages %}
+    <div class="message">
+        <p>{{message}}</p>
+    </div>
+    {% endfor %}
+    <div class="form-container">
+        <div class="form-header">
+            <h3>Admin Register</h3>
+        </div>
+        <form action="admin_register" method="POST">
+            {% csrf_token %}
+            <label>Create Username*</label>
+            <input type="text" name="username" required>
+            <label>Enter Email*</label>
+            <input type="email" name="email" required>
+            <label>Create Password*</label>
+            <input type="password" name="password1" required>
+            <label>Confirm Password*</label>
+            <input type="password" name="password2" required>
+            <input type="submit" value="Register">
+            <br><br>
+        </form>
+    </div>
+    <div class="reg">
+        <div class="descr">
+            <p>Already have an account?</p>
+        </div>
+        <div class="btn-container">
+            <p><a href="/admin_login">Login</a></p>
+        </div>
+    </div>
+</body>
+</html>

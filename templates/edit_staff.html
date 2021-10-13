@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OINVE | Edit_Staff</title>
+    <link rel="stylesheet" href="{%static 'css/starter.css' %}">
+    <link rel="stylesheet" href="{%static 'css/main.css' %}">
+</head>
+<body>
+    {% include 'template_loader.html' %}
+    {% include 'template_header.html' %}
+    <div class="links-container">
+        <ul class="links">
+            <li><a href="/admin_home">Home</a></li>
+            <li><a href="/add_staff">Add Staff</a></li>
+            <li class="active"><a href="/manage_staff">Manage Staff</a></li>
+            <li><a href="/add_supplier">Add Supplier</a></li>
+            <li><a href="/manage_supplier">Manage Supplier</a></li>
+            <li><a href="/add_product">Add Product</a></li>
+            <li><a href="/manage_product">Manage Product</a></li>
+            <li><a href="/order">Orders</a></li>
+            <li><a href="/delivery">Delivery</a></li>
+        </ul>
+    </div>
+    {% include 'template_icon.html' %}
+    <section>
+        <div class="ttle">
+            <h3>Edit Staff</h3>
+        </div>
+        {% for message in messages %}
+        <div class="alert" id="alert">
+            <p>{{message}}</p>
+        </div>
+        {% endfor %}
+        <div class="content-container">
+            <form action="/edi_staff_save" method="POST">
+                {% csrf_token %}
+                <label>Id Number*</label>
+                <input type="number" name="id" value="{{staff.id}}" readonly>
+                <label>First Name*</label>
+                <input type="text" name="fname" value="{{staff.fname}}">
+                <label>Last Name*</label>
+                <input type="text" name="lname" value="{{staff.lname}}">
+                <label>Phone Number*</label>
+                <input type="text" name="phone" value="{{staff.phone}}">
+                <label>Email*</label>
+                <input type="email" name="email" value="{{staff.email}}">
+                <label>Department*</label>
+                <input type="text" name="dept" value="{{staff.department}}">
+                <input type="submit" value="Update">
+                <br><br>
+            </form>
+        </div>
+    </section>
+    {% include 'template_footer.html' %}
+
+    <script src="{%static 'js/starter.js' %}"></script>
+    <script src="{%static 'js/main.js' %}"></script>
+</body>
+</html>

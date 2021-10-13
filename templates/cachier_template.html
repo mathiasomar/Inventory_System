@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OINVE | Cashier</title>
+    <link rel="stylesheet" href="css/starter.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="loader" id="loader">
+        <div class="load"></div>
+        <div class="load-text">Loading....</div>
+    </div>
+    <header>
+        <div class="logo-container">
+            <img src="images/single.png" alt="">
+        </div>
+        <div class="title-container">
+            <h1><span>i</span>nventory <span>s</span>ystem</h1>
+        </div>
+        <div class="profile">
+            <img src="images/user2.png" alt="">
+            <p>Welcome, User &nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Logout</a></p>
+        </div>
+    </header>
+    <div class="links-container">
+        <ul class="links">
+            <li class="active"><a href="cachier_template.html">Sell</a></li>
+            <li><a href="product_template.html">Products</a></li>
+        </ul>
+    </div>
+    <div class="icon-container">
+        <img src="images/inventory.jpg" alt="">
+    </div>
+    <section>
+        <div class="ttle">
+            <h3>Sell Product</h3>
+        </div>
+        <div class="alert" id="alert">
+            <p>Successfully!!!</p>
+        </div>
+        <div class="content-container">
+            <form action="">
+                <label>Product*</label>
+                <select name="product">
+                    <option value="">Select Product</option>
+                    <option value="">Product 1</option>
+                    <option value="">Product 2</option>
+                    <option value="">Product 3</option>
+                </select>
+                <label>Category*</label>
+                <select name="product">
+                    <option value="">Select Category</option>
+                    <option value="">Category 1</option>
+                    <option value="">Category 2</option>
+                    <option value="">Category 3</option>
+                </select>
+                <label>Product Quantity*</label>
+                <input type="number" name="pquantity">
+                <label>Payment*</label>
+                <input type="number" name="pprice">
+                <input type="submit" value="Sell">
+                <br><br>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <div class="copyright">
+            <p>&copy; 2021 Invetory System</p>
+        </div>
+        <div class="developer">
+            <p>Developer OmmyKmathy-Deno</p>
+        </div>
+    </footer>
+
+    <script src="js/starter.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

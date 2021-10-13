@@ -1,0 +1,17 @@
+{% load static %}
+<header>
+    <div class="logo-container">
+        <img src="{%static 'images/Admin.png' %}" alt="">
+    </div>
+    <div class="title-container">
+        <h1><span>i</span>nventory <span>s</span>ystem</h1>
+    </div>
+    <div class="profile">
+        <img src="{%static 'images/user2.png' %}" alt="">
+        {% if user.is_authenticated %}
+        <p>Welcome, {{user.username}} &nbsp;&nbsp;|&nbsp;&nbsp;<a href="/admin_logout">Logout</a></p>
+        {% else %}
+        <p>Welcome</a></p>
+        {% endif %}
+    </div>
+</header>
